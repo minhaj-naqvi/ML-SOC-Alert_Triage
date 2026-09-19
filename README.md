@@ -134,7 +134,7 @@ requirements.
 
     artifacts/           # Serialized/trained model
 
-    configs/             # Wazuh, Filebeat, and OpenSearch configuration examples
+    configs/             # Wazuh, Python, Filebeat, and OpenSearch configuration examples
 
 As mentioned before, post-refinement files should be used when
 reproducing the final reported results.
