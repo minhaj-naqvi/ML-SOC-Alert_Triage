@@ -37,11 +37,11 @@ The repository demonstrates how to:
 -   Deploy the selected model as an independent ML triage layer without
     modifying the underlying Wazuh detection workflow.
 -   Enrich Wazuh alerts with ML outputs and visualize them through
-    OpenSearch/Wazuh Dashboard.
+    Wazuh Indexer (OpenSearch).
 
 ## Proposed Framework
 
-The proposed framework consists of eight functional stages:
+The proposed framework onsists of eight functional stages:
 
 1.  Telemetry Acquisition — Collect security telemetry from one or more
     monitoring sources.
@@ -76,7 +76,7 @@ The implementation evaluated in the accompanying study uses:
 -   Models: Logistic Regression, Random Forest, and XGBoost
 -   Text representation: TF-IDF using unigram and bigram features
 -   Operational integration: Python-based alert enrichment with
-    OpenSearch/Wazuh Dashboard visualization
+    Wazuh Indexer visualization
 
 The present proof-of-concept intentionally focuses on a single telemetry
 source and ATT&CK tactic. These choices define the scope of the
@@ -153,11 +153,11 @@ Wazuh environment to:
     model development.
 3.  Generate model prediction scores.
 4.  Enrich the original alert with ML output.
-5.  Forward enriched alerts for indexing in OpenSearch.
+5.  Forward enriched alerts for indexing in Wazuh Indexer.
 6.  Present both the original alert information and ML assessment
     through the existing dashboard workflow.
 
-Example Filebeat, Wazuh, and OpenSearch configuration material is
+Example Filebeat and Wazuh configuration material is
 provided under configs/.
 
 ## Reproducing the study
