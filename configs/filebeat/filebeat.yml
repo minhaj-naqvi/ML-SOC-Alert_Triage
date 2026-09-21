@@ -1,0 +1,22 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /var/ossec/logs/alerts/alerts_ml.jsonl
+    json.keys_under_root: true
+    json.add_error_key: true
+    json.overwrite_keys: true
+    fields:
+      log_type: wazuh-ml-alerts
+
+output.elasticsearch:
+  hosts: ["wazuh.indexer:9200"]
+
+  indices:
+    - index: "wazuh-ml-alerts-%{+yyyy.MM.dd}"
+      when.equals:
+        fields.log_type: "wazuh-ml-alerts"
+
+    - index: "wazuh-alerts-%{+yyyy.MM.dd}"
+      when.not.equals:
+        fields.log_type: "wazuh-ml-alerts"
